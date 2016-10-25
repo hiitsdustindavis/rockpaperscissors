@@ -1,6 +1,15 @@
+
 //We prompt the user with a prompt dialog box asking them to input their choice and we store the string they type into a variable called userChoice
 // var userChoice = prompt("Do you choose rock, paper or scissors?");
-var userChoice;
+$(function() {
+var userChoice = document.getElementById('user').value;
+console.log(userChoice);
+// $("#submit").click(function(){
+// 	userChoice = $("#user").val();
+// 	$("#user").val("");
+// 	return userChoice;
+// });
+
 
 // The computer's choice has to be random so we use the Math.random() JavaScript method, which is randomly set to a decimal value between 0 and1. We take this value and store its value in a variable called computerChoice.
 var computerChoice = Math.random();
@@ -62,10 +71,7 @@ function compare(choice1, choice2) {
 //We have established the prompt for the userChoice and also the ranges of values for computerChoice.
 //Then we created the function called compare taking the arguments choice1 and choice2. Within compare() we have specified the conditions and outputs for a TIE, WIN and LOSS.
 //Now, we can call compare() with the arguments userChoice and computerChoice and play the game! :)
-$(function() {
-$("form.user-input").submit(function(event){
-	userChoice = $("input#user").val();
-});
+
 
 
 	compare(userChoice, computerChoice);
