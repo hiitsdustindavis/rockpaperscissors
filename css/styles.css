@@ -19,31 +19,7 @@ body {
   align-items: center; }
 
 #user {
-  width: 50vw;
-  margin-right: 10%;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  background: transparent; }
-
-input::-webkit-input-placeholder {
-  font-size: 22px;
   padding: 10px;
-  color: white; }
-
-input:-moz-placeholder {
-  font-size: 22px;
-  padding: 10px;
-  color: white; }
-
-input::-moz-placeholder {
-  font-size: 22px;
-  padding: 10px;
-  color: white; }
-
-input:-ms-input-placeholder {
-  font-size: 22px;
-  padding: 10px;
-  color: white; }
+  width: 20vw; }
 
 /*# sourceMappingURL=styles.css.map */

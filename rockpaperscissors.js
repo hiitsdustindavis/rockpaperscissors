@@ -1,31 +1,30 @@
 
 //We prompt the user with a prompt dialog box asking them to input their choice and we store the string they type into a variable called userChoice
 // var userChoice = prompt("Do you choose rock, paper or scissors?");
-$(function() {
-var userChoice = document.getElementById('user').value;
-console.log(userChoice);
-// $("#submit").click(function(){
-// 	userChoice = $("#user").val();
-// 	$("#user").val("");
-// 	return userChoice;
-// });
 
 
 // The computer's choice has to be random so we use the Math.random() JavaScript method, which is randomly set to a decimal value between 0 and1. We take this value and store its value in a variable called computerChoice.
-var computerChoice = Math.random();
+
+// var computerChoice = Math.random();
+//························································
+//NOTE: var compterChoice above has been moved to UI Logic in the $(document).ready block below.
+// ·······················································
 
 //We need a way for the computer to select rock, paper, or scissors.
 //Because the variable, computerChoice, is storing a random value between 0 and 1 we can select from this range and update the value of computerChoice with the corresponding string of "rock", "paper", or "scissors"
 //NOTE: if the first (computerChoice < 0.34) and second (computerChoice <= 0.67) branches have their order reversed computerChoice will equal "scissors" for ANYTHING <= 0.67. Because the document is read top to bottom the order is critical!
-if (computerChoice < 0.34) {
-	computerChoice = "rock";
-} else if(computerChoice <= 0.67) {
-	computerChoice = "paper";
-} else {
-	computerChoice = "scissors";
-} console.log("Computer: " + computerChoice);
 
+// if (computerChoice < 0.34) {
+// 	computerChoice = "rock";
+// } else if(computerChoice <= 0.67) {
+// 	computerChoice = "paper";
+// } else {
+// 	computerChoice = "scissors";
+// } console.log("Computer: " + computerChoice);
 
+//························································
+//NOTE: Branching above has been moved to UI Logic in the $(document).ready block below.
+// ·······················································
 
 //Now we will make a function that can compare the userChoice input and the computerChoice input to determine a winner. All possible game outcomes need to be figured here.
 //There are only 3 conditions for this if/else branch: TIE, WIN, LOSS
@@ -73,7 +72,22 @@ function compare(choice1, choice2) {
 //Now, we can call compare() with the arguments userChoice and computerChoice and play the game! :)
 
 
-
-	compare(userChoice, computerChoice);
-	$(".result").append(compare());
+$(document).ready(function() {
+  $("#submit").click(function(event) {
+    var userChoice = $("#user").val();
+    $("#user").val("");
+    console.log(userChoice);
+    var computerChoice = Math.random();
+	    if (computerChoice < 0.34) {
+	    	computerChoice = "rock";
+	    } else if(computerChoice <= 0.67) {
+	    	computerChoice = "paper";
+	    } else {
+	    	computerChoice = "scissors";
+	    }
+	    console.log(computerChoice);
+    var result = compare(userChoice, computerChoice);
+    console.log(result);
+	$(".result").append("<p>" + result + "</p>");
+});
 });
