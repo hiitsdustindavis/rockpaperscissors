@@ -36,7 +36,7 @@ function compare(choice1, choice2) {
 //Next the 3 possible values of choice1 (rock, paper, scissors) conditions must be declared in three else/if branches.
 //Within each of those branches conditions for a win and lose must be declared.
 //NOTE: Because the document is read top-bottom the program will run through the branches until the conditions are met.
-    else if (choice1 === "rock") {
+    else if (choice1 === "ROCK") {
       if (choice2 === "scissors") {
           return "rock wins";
       }
@@ -46,7 +46,7 @@ function compare(choice1, choice2) {
       }
     }
 
-    else if (choice1 === "paper") {
+    else if (choice1 === "PAPER") {
         if (choice2 === "scissors") {
             return "scissors wins";
         }
@@ -56,14 +56,16 @@ function compare(choice1, choice2) {
         }
     }
 
-    else if (choice1 === "scissors") {
+    else if (choice1 === "SCISSORS") {
         if (choice2 === "paper") {
             return "scissors wins";
         }
-
         else {
-            return "rock wins";
+                return "Rock Wins!";
         }
+    }
+    else {
+            return "Please Enter Rock, Paper, or Scissors!";
     }
 }
 //RECAP
@@ -74,9 +76,9 @@ function compare(choice1, choice2) {
 
 $(document).ready(function() {
   $("#submit").click(function(event) {
-    var userChoice = $("#user").val();
+    var userChoice = $("#user").val().toUpperCase();
     $("#user").val("");
-    console.log(userChoice);
+    console.log("user " + userChoice);
     var computerChoice = Math.random();
 	    if (computerChoice < 0.34) {
 	    	computerChoice = "rock";
@@ -85,9 +87,11 @@ $(document).ready(function() {
 	    } else {
 	    	computerChoice = "scissors";
 	    }
-	    console.log(computerChoice);
+	    console.log("Computer " + computerChoice);
     var result = compare(userChoice, computerChoice);
     console.log(result);
-	$(".result").append("<p>" + result + "</p>");
+        $(".result").empty();
+        $(".result").append("<p>" + result + "</p>");
+
 });
 });
