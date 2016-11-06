@@ -91,13 +91,13 @@ $(document).ready(function() {
     var result = compare(userChoice, computerChoice);
     console.log(result);
         $(".user-entered").empty();
-        $(".user-entered").append("<p>You chose " + userChoice + "</p>");
+        $(".user-entered").append("<p>" + userChoice + "</p>");
 
         $(".computer-entered").empty();
-        $(".computer-entered").append("<p>The Computer chose " + computerChoice + "</p>");
+        $(".computer-entered").append("<p>" + computerChoice + "</p>");
 
         $(".result").empty();
-        $(".result").append("<p>" + result + "</p>");
+        $(".result").append("<h1>" + result + "</h1>");
 
 });
 });
