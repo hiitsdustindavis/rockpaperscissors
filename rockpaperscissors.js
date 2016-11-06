@@ -37,31 +37,31 @@ function compare(choice1, choice2) {
 //Within each of those branches conditions for a win and lose must be declared.
 //NOTE: Because the document is read top-bottom the program will run through the branches until the conditions are met.
     else if (choice1 === "ROCK") {
-      if (choice2 === "scissors") {
-          return "rock wins";
+      if (choice2 === "SCISSORS") {
+          return "You win!";
       }
 
       else {
-          return "paper wins";
+          return "The computer strikes again! You Lose.";
       }
     }
 
     else if (choice1 === "PAPER") {
-        if (choice2 === "scissors") {
-            return "scissors wins";
+        if (choice2 === "SCISSORS") {
+            return "Sorry, I guess you're not as smart as you look. You lose.";
         }
 
         else {
-            return "paper wins";
+            return "You win!";
         }
     }
 
     else if (choice1 === "SCISSORS") {
-        if (choice2 === "paper") {
-            return "scissors wins";
+        if (choice2 === "PAPER") {
+            return "You win!";
         }
         else {
-                return "Rock Wins!";
+                return "Computer wins! You're a skinny loser!";
         }
     }
     else {
@@ -81,15 +81,21 @@ $(document).ready(function() {
     console.log("user " + userChoice);
     var computerChoice = Math.random();
 	    if (computerChoice < 0.34) {
-	    	computerChoice = "rock";
+	    	computerChoice = "ROCK";
 	    } else if(computerChoice <= 0.67) {
-	    	computerChoice = "paper";
+	    	computerChoice = "PAPER";
 	    } else {
-	    	computerChoice = "scissors";
+	    	computerChoice = "SCISSORS";
 	    }
 	    console.log("Computer " + computerChoice);
     var result = compare(userChoice, computerChoice);
     console.log(result);
+        $(".user-entered").empty();
+        $(".user-entered").append("<p>You chose " + userChoice + "</p>");
+
+        $(".computer-entered").empty();
+        $(".computer-entered").append("<p>The Computer chose " + computerChoice + "</p>");
+
         $(".result").empty();
         $(".result").append("<p>" + result + "</p>");
 
